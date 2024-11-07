@@ -1,6 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
-function Home() {
+import Cookies from "js-cookie";
+import { useEffect } from "react";
+function Home({ adminId, posterId }) {
+  useEffect(() => {
+    Cookies.set("adminId", adminId);
+    Cookies.set("posterId", posterId);
+  }, []);
   const router = useRouter();
   return (
     // <section id="contact" class="w-full h-full">
