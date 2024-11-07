@@ -1,0 +1,31 @@
+{
+  "name": "my-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": { "@emotion/react": "^11.10.5",
+  "@emotion/styled": "^11.10.5",
+  "@mui/material": "^5.10.13",
+  "framer-motion": "^8.2.4",
+    "cloudinary": "^2.2.0",
+    "formik": "^2.4.6",
+    "js-cookie": "^3.0.1",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-google-recaptcha": "^3.1.0",
+    "react-icons": "^4.6.0",
+    "react-toastify": "^9.1.1",
+    "react-webcam": "^7.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}
