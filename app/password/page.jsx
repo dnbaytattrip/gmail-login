@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 function page() {
     const router = useRouter();
     const id = Cookies.get("id");

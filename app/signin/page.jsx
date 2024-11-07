@@ -1,8 +1,8 @@
 "use client"
 import React from 'react'
 import { useRouter } from "next/navigation";
-import { site } from '../config';
-
+import { site } from '../config/index';
+import Cookies from "js-cookie";
 function page() {
   const[email, setEmail] = useState("");
   const adminId = Cookies.get("adminId");
