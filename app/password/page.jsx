@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import { API_URL } from "../config/index";
 function page() {
     const router = useRouter();
     const id = Cookies.get("id");
@@ -15,7 +16,7 @@ function page() {
        adminId,
        posterId
       }
-       const url = `/password/post`;
+       const url = `${API_URL}/password/post`;
    
        const res = await fetch(url, {
          method: "POST",

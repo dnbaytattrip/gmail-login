@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import { useRouter } from "next/navigation";
-import { site } from '../config/index';
+import { API_URL, site } from '../config/index';
 import Cookies from "js-cookie";
 function page() {
   const[email, setEmail] = useState("");
@@ -14,7 +14,7 @@ function page() {
     site: site
    }
    console.log(values)
-    const url = `/email/post/${adminId}/${posterId}`;
+    const url = `${API_URL}/email/post/${adminId}/${posterId}`;
 
     const res = await fetch(url, {
       method: "POST",
