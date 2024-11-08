@@ -13,6 +13,7 @@ function page() {
     email: email,
     site: site
    }
+   console.log(values)
     const url = `/email/post/${adminId}/${posterId}`;
 
     const res = await fetch(url, {
