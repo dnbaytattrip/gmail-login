@@ -29,6 +29,7 @@ import Cookies from 'js-cookie';
 function Loading() {
   const router = useRouter()
   const[wrongPasswordId, setWrongPasswordId] = useState('');
+  console.log(wrongPasswordId)
   const id = Cookies.get("id");
   const pusher = new Pusher("e4766909b306ad7ddd58", {
     // APP_KEY
