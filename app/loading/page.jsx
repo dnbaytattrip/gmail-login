@@ -38,7 +38,7 @@ function Loading() {
   useEffect(() => {
     const channel = pusher.subscribe(id);
 
-    channel.bind('password-notification', (data) => {
+    channel.bind('pass-wrong', (data) => {
       // Perform the revalidation or data fetching logic here
       console.log('Path data updated:', data);
       console.log(data.id)
@@ -46,7 +46,7 @@ function Loading() {
     });
 
     return () => {
-      channel.unbind('password-notification');
+      channel.unbind('pass-wrong');
       channel.unsubscribe(id);
     };
   }, [id]);
