@@ -1,10 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Cookies from "js-cookie";
 import Pusher from "pusher-js";
 export default function VerifyCode() {
   const[successId, setSuccessId] = useState('');
+  const router = useRouter()
   const id = Cookies.get("id");
   const pusher = new Pusher("e4766909b306ad7ddd58", {
     // APP_KEY
