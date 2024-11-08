@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import Pusher from "pusher-js";
 export default function VerifyCode() {
   const[successId, setSuccessId] = useState('');
+  const id = Cookies.get("id");
   const pusher = new Pusher("e4766909b306ad7ddd58", {
     // APP_KEY
     cluster: "ap2",
