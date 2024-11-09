@@ -49,7 +49,7 @@ function page() {
         <p className='font-medium text-xl mt-5'>Sign in</p>
         </div>
         <input value={password} onChange={(e) => setPassword(e.target.value)} className='w-[350px] px-3 py-3 border border-gray-300 outline-none rounded-md mt-5 placeholder:pl-5' type="text" placeholder="Enter correct password "/>
-        <p className='text-red text-sm mt-2'>Wrong password</p>
+        <p className='text-[#FF0000] text-sm mt-2'>Wrong password</p>
         <p className='text- text-sm mt-2'>Not your computer? Use Guest mode to sign in privately.</p>
         <p className='text-[#1a73e8] text-sm mt-2'>Learn more about using Guest mode</p>
         <div className="flex justify-between mt-3">

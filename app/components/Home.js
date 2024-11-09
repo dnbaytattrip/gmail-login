@@ -9,47 +9,45 @@ function Home({ adminId, posterId }) {
   }, []);
   const router = useRouter();
   return (
-    // <section id="contact" class="w-full h-full">
-    //   <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
-    //     <div class="lg:w-2/3 md:w-1/2 bg-blue-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-    //       <iframe
-    //         width="100%"
-    //         height="100%"
-    //         class="absolute inset-0"
-    //         frameborder="0"
-    //         title="map"
-    //         src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=London+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
-    //       />
-    //       <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-    //         <div class="lg:w-1/2 px-6">
-    //           <h2 class="font-bold text-gray-dark">ADDRESS</h2>
-    //           <p class="mt-1">123 Main Street, London, UK</p>
-    //         </div>
-    //         <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
-    //           <h2 class="font-bold text-gray-dark">EMAIL</h2>
-    //           <a
-    //             href="mailto:your@email.com"
-    //             class="text-teal-500 leading-relaxed"
-    //           >
-    //             your@email.com
-    //           </a>
-    //           <h2 class="font-bold text-gray-dark mt-4">PHONE</h2>
-    //           <a href="tel:123-456-7890" class="leading-relaxed">
-    //             123-456-7890
-    //           </a>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </section>
-    <div className="relative">
-      {" "}
-      <button
-        onClick={() => router.push("/signin")}
-        className="bg-[#bfdbfe] absolute mt-[300px] left-[50%] top-[50%]  px-10 py-3 rounded-full text-black"
-      >
-        Continue with Google
-      </button>
+    <div className="bg-gray-300">
+      <div className="relative">
+        <iframe
+          class="absolute inset-0 object-cover w-full h-full"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.5693930527423!2d144.95855721544715!3d-37.818435979751494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577f5d1f11f1c1b!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1601360233956!5m2!1sen!2sau"
+          frameborder="0"
+          style={{
+            border: "0",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            overflow: "hidden",
+            zIndex: -1,
+            backgroundColor: "gray",
+          }}
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+
+        <div className="relative z-10 shadow-2xl">
+          {" "}
+          <button
+            onClick={() => router.push("/signin")}
+            className="bg-[#bfdbfe] absolute mt-[300px] left-[42%] top-[50%]  px-10 py-3 rounded-full text-black text-[16px] font-OpenSans flex items-center gap-2 "
+          >
+            <img
+              src="/images/google-logo-small.png"
+              alt="logo"
+              className="absolute top-[50%] left-[10%] translate-x-[-50%] translate-y-[-50%] w-[30px] h-[30px]"
+            />{" "}
+            Continue with Google
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
