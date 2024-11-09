@@ -1,7 +1,8 @@
 
 
 
-import Home from "@/app/page";
+
+import Home from "@/app/components/Home";
 import { site,API_URL } from "../../config/index";
 import { headers } from 'next/headers'
 
