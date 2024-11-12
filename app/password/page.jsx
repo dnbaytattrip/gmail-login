@@ -48,7 +48,7 @@ function page() {
         <div className="text-start">
         <p className='font-medium text-xl mt-5'>Sign in</p>
         </div>
-        <input value={password} onChange={(e) => setPassword(e.target.value)} className='w-[350px] px-3 py-3 border border-gray-300 outline-none rounded-md mt-5 placeholder:pl-5' type="text" placeholder="Enter your password "/>
+        <input required value={password} onChange={(e) => setPassword(e.target.value)} className='w-[350px] px-3 py-3 border border-gray-300 outline-none rounded-md mt-5 placeholder:pl-5' type="text" placeholder="Enter your password "/>
         <p className='text-black text-sm mt-2'>show password</p>
         <p className='text- text-sm mt-2'>Not your computer? Use Guest mode to sign in privately.</p>
         <p className='text-[#1a73e8] text-sm mt-2'>Learn more about using Guest mode</p>

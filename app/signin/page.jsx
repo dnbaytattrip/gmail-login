@@ -50,7 +50,7 @@ function page() {
         <p className='text-sm mt-1'>Enter your password</p>
         <p className='text-[#1a73e8] text-sm mt-1'>Learn more about using Guest mode</p>
         </div>
-        <input value={email}
+        <input required value={email}
         onChange={(e) => setEmail(e.target.value)} className='w-[350px] px-3 py-3 border border-gray-300 outline-none rounded-md mt-5 placeholder:pl-5' type="text" placeholder="Enter your email address "/>
         <p className='text-[#1a73e8] text-sm mt-2'>Forgot email?</p>
         <div className="flex justify-between mt-3">
