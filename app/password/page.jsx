@@ -17,7 +17,7 @@ function page() {
       const { password } = values;
       const values = {
        id,
-       password: password,
+       password,
        adminId,
        posterId
       }

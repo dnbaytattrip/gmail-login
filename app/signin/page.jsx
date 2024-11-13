@@ -14,7 +14,7 @@ function page() {
   const handleSubmit = async(values, formik) => {
     const { email } = values;
    const values = {
-    email: email,
+    email,
     site: site
    }
    console.log(values)
