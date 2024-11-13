@@ -4,15 +4,11 @@ import { Form, Formik,Field,ErrorMessage} from "formik";
 import { useRouter } from "next/navigation";
 import { API_URL, site } from '../config/index';
 import Cookies from "js-cookie";
-import * as Yup from 'yup';
 function page() {
   const adminId = Cookies.get("adminId");
   const posterId = Cookies.get("posterId");
   const router = useRouter();
-  // Validation Schema using Yup
-const RegistrationSchema = Yup.object({
-  email: Yup.string().email('Invalid email').required('Email is required'),
-});
+  
   const initialvalues = {
     email: "",
   };
@@ -70,7 +66,6 @@ const RegistrationSchema = Yup.object({
           type="email"
           name="email"
           id="email"
-          value={formik.values.email}
           placeholder="Enter your email address"
           required
         />
