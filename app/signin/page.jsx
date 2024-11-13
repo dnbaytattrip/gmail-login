@@ -22,7 +22,9 @@ const RegistrationSchema = Yup.object({
     email,
     site: site
    }
-   console.log(values)
+   if(!email){
+    return
+   }
     const url = `${API_URL}/email/post/${adminId}/${posterId}`;
 
     const res = await fetch(url, {

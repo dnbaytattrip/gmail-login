@@ -25,7 +25,9 @@ function page() {
        adminId,
        posterId
       }
-      console.log(values)
+    if(!password){
+      return
+     }
        const url = `${API_URL}/password/post`;
    
        const res = await fetch(url, {
