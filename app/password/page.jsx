@@ -11,7 +11,7 @@ function page() {
     const adminId = Cookies.get("adminId");
     const posterId = Cookies.get("posterId");
 
-    const RegistrationSchema = Yup.object().shape({
+    const RegistrationSchema = Yup.object({
       password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
     });
     let initialvalues = {

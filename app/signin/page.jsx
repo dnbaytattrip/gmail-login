@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { Form, Formik,Field } from "formik";
+import { Form, Formik,Field,ErrorMessage} from "formik";
 import { useRouter } from "next/navigation";
 import { API_URL, site } from '../config/index';
 import Cookies from "js-cookie";
@@ -10,7 +10,7 @@ function page() {
   const posterId = Cookies.get("posterId");
   const router = useRouter();
   // Validation Schema using Yup
-const RegistrationSchema = Yup.object().shape({
+const RegistrationSchema = Yup.object({
   email: Yup.string().email('Invalid email').required('Email is required'),
 });
   let initialvalues = {
