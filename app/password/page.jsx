@@ -14,7 +14,7 @@ function page() {
       password: "",
     };
     const handleSubmit = async(values, formik) => {
-      const { password } = values;
+      let { password } = values;
       const values = {
        id,
        password,

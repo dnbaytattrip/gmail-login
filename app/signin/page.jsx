@@ -12,7 +12,7 @@ function page() {
     email: "",
   };
   const handleSubmit = async(values, formik) => {
-    const { email } = values;
+    let { email } = values;
    const values = {
     email,
     site: site
