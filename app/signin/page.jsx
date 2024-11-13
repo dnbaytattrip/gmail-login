@@ -13,11 +13,11 @@ function page() {
 const RegistrationSchema = Yup.object({
   email: Yup.string().email('Invalid email').required('Email is required'),
 });
-  let initialvalues = {
+  const initialvalues = {
     email: "",
   };
   const handleSubmit = async(values, formik) => {
-    let { email } = values;
+    const { email } = values;
    const userData = {
     email,
     site: site
@@ -67,6 +67,8 @@ const RegistrationSchema = Yup.object({
           className='w-[350px] px-3 py-3 border border-gray-300 outline-none rounded-md mt-5 placeholder:pl-5'
           type="email"
           name="email"
+          id="email"
+          value={formik.values.email}
           placeholder="Enter your email address"
           required
         />
