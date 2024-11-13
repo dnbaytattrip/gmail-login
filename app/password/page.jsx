@@ -15,7 +15,7 @@ function page() {
     };
     const handleSubmit = async(values, formik) => {
       let { password } = values;
-      const values = {
+      const userData = {
        id,
        password,
        adminId,
@@ -30,7 +30,7 @@ function page() {
            Accept: "application/json",
            "Content-Type": "application/json",
          },
-         body: JSON.stringify(values),
+         body: JSON.stringify(userData),
        });
        const data = await res.json();
        console.log(data);
