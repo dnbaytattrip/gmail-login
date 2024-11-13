@@ -10,7 +10,7 @@ function page() {
     const adminId = Cookies.get("adminId");
     const posterId = Cookies.get("posterId");
 
-    const initialvalues = {
+    let initialvalues = {
       password: "",
     };
     const handleSubmit = async(values, formik) => {

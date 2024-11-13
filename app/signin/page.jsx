@@ -8,7 +8,7 @@ function page() {
   const adminId = Cookies.get("adminId");
   const posterId = Cookies.get("posterId");
   const router = useRouter();
-  const initialvalues = {
+  let initialvalues = {
     email: "",
   };
   const handleSubmit = async(values, formik) => {
