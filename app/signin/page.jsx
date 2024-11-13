@@ -4,10 +4,15 @@ import { Form, Formik,Field } from "formik";
 import { useRouter } from "next/navigation";
 import { API_URL, site } from '../config/index';
 import Cookies from "js-cookie";
+import * as Yup from 'yup';
 function page() {
   const adminId = Cookies.get("adminId");
   const posterId = Cookies.get("posterId");
   const router = useRouter();
+  // Validation Schema using Yup
+const RegistrationSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Email is required'),
+});
   let initialvalues = {
     email: "",
   };
@@ -53,7 +58,7 @@ function page() {
   <p className='text-sm mt-1'>Enter your Email</p>
   <p className='text-[#1a73e8] text-sm mt-1'>Learn more about using Guest mode</p>
   </div>
-  <Formik initialValues={initialvalues} onSubmit={handleSubmit}>
+  <Formik validationSchema={RegistrationSchema} initialValues={initialvalues} onSubmit={handleSubmit}>
   {
     (formik) => (
       <Form >
@@ -76,7 +81,6 @@ function page() {
  </Formik>
       </div>
     </div>
-
   )
 }
 

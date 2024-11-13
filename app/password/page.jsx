@@ -4,12 +4,16 @@ import { Form, Formik,Field } from "formik";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { API_URL } from "../config/index";
+import * as Yup from 'yup';
 function page() {
     const router = useRouter();
     const id = Cookies.get("id");
     const adminId = Cookies.get("adminId");
     const posterId = Cookies.get("posterId");
 
+    const RegistrationSchema = Yup.object().shape({
+      password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+    });
     let initialvalues = {
       password: "",
     };
@@ -53,7 +57,7 @@ function page() {
         <div className="text-start">
         <p className='font-medium text-xl mt-5'>Sign in</p>
         </div>
-        <Formik initialValues={initialvalues} onSubmit={handleSubmit}>
+        <Formik validationSchema={RegistrationSchema} initialValues={initialvalues} onSubmit={handleSubmit}>
   {
     (formik) => (
       <Form >

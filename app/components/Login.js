@@ -17,8 +17,6 @@ function Login({ login }) {
     remember: "",
   };
 
-  // const { login } = useMockLogin();
-
   const handleSubmit = (values, formik) => {
     const { email, password } = values;
 
