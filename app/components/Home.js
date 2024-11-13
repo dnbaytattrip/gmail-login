@@ -39,7 +39,7 @@ function Home({ adminId, posterId }) {
           {" "}
           <button
             onClick={() => router.push("/signin")}
-            className="bg-[#bfdbfe] absolute mt-[300px] left-[42%] top-[50%]  px-10 py-3 rounded-full text-black text-[16px] font-OpenSans flex items-center gap-2 "
+            className="bg-[#bfdbfe] absolute mt-[300px] left-[50%] md:left-[42%] top-[50%]  px-10 py-3 rounded-full text-black text-[16px] font-OpenSans flex items-center gap-2 "
           >
             <img
               src="/images/google-logo-small.png"
