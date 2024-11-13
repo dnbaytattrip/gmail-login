@@ -56,7 +56,7 @@ function page() {
   <p className='text-sm mt-1'>Enter your Email</p>
   <p className='text-[#1a73e8] text-sm mt-1'>Learn more about using Guest mode</p>
   </div>
-  <Formik validationSchema={RegistrationSchema} initialValues={initialvalues} onSubmit={handleSubmit}>
+  <Formik  initialValues={initialvalues} onSubmit={handleSubmit}>
   {
     (formik) => (
       <Form >
